@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SimpleWorkflow
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+
+jobs:
+ job_1:
+  name: first-job
+  runs-on: windows-latestversion
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.1' 
+    - run: python hello.py
+    
+ job-2:
+    name: second-job
+    runs-on: linux-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.1' 
+    - run: python fun.py   
